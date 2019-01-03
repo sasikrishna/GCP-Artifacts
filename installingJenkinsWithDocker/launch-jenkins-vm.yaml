@@ -1,0 +1,37 @@
+resources:
+  - name: jenkins-vm
+    type: compute.v1.instances
+    properties:
+       zone: us-central1-a
+       machineType: zones/us-central1-a/machineTypes/g1-small
+       tags:
+         items:
+           - allow-http
+       disks:
+        - deviceName: boot
+          type: PERSISTENT
+          boot: true
+          autoDelete: true
+          initializeParams:
+            sourceImage: projects/debian-cloud/global/images/family/debian-9
+       networkInterfaces:
+        - network: global/networks/default
+          accessConfigs:
+            - name: External NAT
+              type: ONE_TO_ONE_NAT
+       metadata:
+         items:
+          - key: startup-script-url
+            value: "gs:///deployment_scrpts/install_docker_jenkins.sh"
+  - name: allow-http
+    type: compute.v1.firewall
+    properties:
+      netwoork: global/networks/default
+      targetTags: 
+        - allow-http
+      sourceRanges: 
+        - 0.0.0.0/0
+      allowed:
+        - IPProtocol: TCP
+          ports:
+           - 80
