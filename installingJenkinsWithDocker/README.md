@@ -8,4 +8,4 @@ but we can automate this step by providing metadata attribute called startup-scr
   ```
   gcloud deployment-manager deployments create launch-jenkins --config launch-jenkins-vm.yaml
   ```
-- **Note**: All though we can do everything from the cloud console, this is good for couple of reasons like automation, changing configuration at ease and provising environments in later times with same yaml file.
+- **Note**: All though we can do everything from the cloud console, this is good for couple of reasons like automation, changing configuration at ease and provisioning environments in later times using same yaml file.
