@@ -8,4 +8,7 @@ but we can automate this step by providing metadata attribute called startup-scr
   ```
   gcloud deployment-manager deployments create launch-jenkins --config launch-jenkins-vm.yaml
   ```
+- After executing above command below are the list of things that happens.
+  - Creates a virtual machine and installs docker and run jenkins after VM booting is completed.
+  - Creates a firewall rule with a tag called "allow-http". Whichever VMs have this "allow-http" tag this firewall rule will be applied on it.
 - **Note**: All though we can do everything from the cloud console, this is good for couple of reasons like automation, changing configuration at ease and provisioning environments in later times using same yaml file.
