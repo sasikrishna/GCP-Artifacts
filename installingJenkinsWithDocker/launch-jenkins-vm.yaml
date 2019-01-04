@@ -11,7 +11,7 @@ resources:
         - deviceName: boot
           type: PERSISTENT
           boot: true
-          autoDelete: true
+          autoDelete: false
           initializeParams:
             sourceImage: projects/debian-cloud/global/images/family/debian-9
        networkInterfaces:
